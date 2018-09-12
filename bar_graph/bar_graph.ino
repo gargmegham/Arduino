@@ -11,6 +11,7 @@ void setup() {
   for (int thisLed = 0; thisLed < ledCount; thisLed++) {
     pinMode(ledPins[thisLed], OUTPUT);
   }
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -18,7 +19,7 @@ void loop() {
   int sensorReading = analogRead(analogPin);
   // map the result to a range from 0 to the number of LEDs:
   int ledLevel = map(sensorReading, 0, 1023, 0, ledCount);
-
+  Serial.println(ledLevel);
   // loop over the LED array:
   for (int thisLed = 0; thisLed < ledCount; thisLed++) {
     // if the array element's index is less than ledLevel,
@@ -31,4 +32,5 @@ void loop() {
       digitalWrite(ledPins[thisLed], LOW);
     }
   }
+  delay(500);
 }
