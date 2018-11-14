@@ -1,15 +1,11 @@
-#include <VirtualWire.h> //Load the library
-
-const int trigPin  = A0;
-const int echoPin  = A1;
+const int trigPin  = A1;
+const int echoPin  = A2;
 float duration, distance;     
 char msg[6];
 
 
 void setup()
 {
-    vw_set_tx_pin(12);          // Sets pin D12 as the TX pin
-    vw_setup(2000);          // Bits per sec
     pinMode(trigPin, OUTPUT); 
     pinMode(echoPin, INPUT); 
     Serial.begin(9600); 
