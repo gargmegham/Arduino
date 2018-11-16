@@ -49,7 +49,7 @@ void loop() {
   Serial.println();
   delay(700);
   
-  if(temp>45 || distance<15)
+  if(/*temp>45 || */distance<20)
   {
     tone(piezoPin, 1000, 500);
     digitalWrite(ledPin, HIGH);
