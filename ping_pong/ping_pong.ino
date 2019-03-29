@@ -70,17 +70,39 @@ void loop()
   {
     if(d==0)
     {
-      bl_x = bl_x + 1;
-      bl_y = !bl_y;
       if(bl_x==14)
+      {
         d=1;
+        if(bl_y!=bt2_y)
+        {
+          play=0;
+          lcd.clear();
+          lcd.print("player 1 wins");
+        }
+      }
+      else
+      {
+        bl_x = bl_x + 1;
+        bl_y = !bl_y;
+      }
     }
     if(d==1)
     {
-      bl_x = bl_x - 1;
-      bl_y = !bl_y;
       if(bl_x==1)
-        d=1;
+      {  
+        d=0;
+        if(bl_y!=bt1_y)
+        {
+          play=0;
+          lcd.clear();
+          lcd.print("player 2 wins");
+        }
+      }
+      else
+      {
+        bl_x = bl_x - 1;
+        bl_y = !bl_y;
+      }
     }
     if(digitalRead(up1) == HIGH)
     {
