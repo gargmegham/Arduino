@@ -26,6 +26,8 @@ int down2=11; //down for player 2
 int d=0; // 0 indiactes ball is travelling towards right 
          // 1 indiactes ball is travelling towards left
 
+//int winStatus=0; //-1 indicates player 1 won
+         //+1 indicates player 2 won
 int bt1_x=0;
 int bt1_y=0;
 int bt2_x=15;
@@ -68,9 +70,16 @@ void loop()
    
   if(play == 1)
   {
+    
+    lcd.setCursor(bt1_x,bt1_y);
+    lcd.write(byte(1));
+    lcd.setCursor(bt2_x,bt2_y);
+    lcd.write(byte(1));
+    lcd.setCursor(bl_x,bl_y);
+    lcd.write(byte(0));
     if(d==0)
     {
-      if(bl_x==14)
+      if(bl_x==15)
       {
         d=1;
         if(bl_y!=bt2_y)
@@ -78,6 +87,7 @@ void loop()
           play=0;
           lcd.clear();
           lcd.print("player 1 wins");
+          delay(250);
         }
       }
       else
@@ -86,9 +96,9 @@ void loop()
         bl_y = !bl_y;
       }
     }
-    if(d==1)
+    if(d==1 && play==1)
     {
-      if(bl_x==1)
+      if(bl_x==0)
       {  
         d=0;
         if(bl_y!=bt1_y)
@@ -96,6 +106,7 @@ void loop()
           play=0;
           lcd.clear();
           lcd.print("player 2 wins");
+          delay(250);
         }
       }
       else
@@ -108,31 +119,21 @@ void loop()
     {
       bt1_x=0;
       bt1_y=0;
-      lcd.clear();
     }
     if(digitalRead(down1) == HIGH)
     {
       bt1_x=0;
       bt1_y=1;
-      lcd.clear();
     }
     if(digitalRead(up2) == HIGH)
     {
       bt2_x=15;
       bt2_y=0;
-      lcd.clear();
     }
     if(digitalRead(down2) == HIGH)
     {
       bt2_x=15;
       bt2_y=1;
-      lcd.clear();
     }
-    lcd.setCursor(bt1_x,bt1_y);
-    lcd.write(byte(1));
-    lcd.setCursor(bt2_x,bt2_y);
-    lcd.write(byte(1));
-    lcd.setCursor(bl_x,bl_y);
-    lcd.write(byte(0));
   }
 }
