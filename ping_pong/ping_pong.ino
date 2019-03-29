@@ -77,6 +77,7 @@ void loop()
     lcd.write(byte(1));
     lcd.setCursor(bl_x,bl_y);
     lcd.write(byte(0));
+    delay(40);
     if(d==0)
     {
       if(bl_x==15)
