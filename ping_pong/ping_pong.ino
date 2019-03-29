@@ -26,24 +26,26 @@ int down2=11; //down for player 2
 int d=0; // 0 indiactes ball is travelling towards right 
          // 1 indiactes ball is travelling towards left
 
-//int winStatus=0; //-1 indicates player 1 won
-         //+1 indicates player 2 won
-int bt1_x=0;
-int bt1_y=0;
-int bt2_x=15;
-int bt2_y=0;
-int bl_x=1;
-int bl_y=0;
+int bt1_x=0;  // x coordinates of bat of player 1
+int bt1_y=0;  // y coordinates of bat of player 1
 
-int play = 0;
+int bt2_x=15; // x coordinated of bat of player 2
+int bt2_y=0;  // y coordinated of bat of player 2
+
+int bl_x=1; // x coordinated of ball
+int bl_y=0; // y coordinated of ball
+
+int play = 0; // to check weather the game is On.
 
 void setup()
 {
   lcd.begin(16, 2);
   lcd.clear();
-  lcd.createChar(0, ball);
-  lcd.createChar(1, bat);
-  pinMode(up1, INPUT);
+  
+  lcd.createChar(0, ball);  //create ball
+  lcd.createChar(1, bat); //create racket or bat
+  
+  pinMode(up1, INPUT);    //configure buttons for inputs
   pinMode(down1, INPUT);
   pinMode(up2, INPUT);
   pinMode(down2, INPUT);
@@ -53,7 +55,7 @@ void setup()
 
 void loop()
 {
-  if(play == 0)
+  if(play == 0) //if no one is playing
   {
     lcd.clear();
     lcd.setCursor(0,0);
@@ -63,7 +65,7 @@ void loop()
     delay(250);
     if(digitalRead(up1) == HIGH || digitalRead(down1) == HIGH || digitalRead(up2) == HIGH || digitalRead(down2) == HIGH )
     {
-      play = 1;
+      play = 1; // start the game
       lcd.clear();
     }
   }
@@ -78,12 +80,14 @@ void loop()
     lcd.setCursor(bl_x,bl_y);
     lcd.write(byte(0));
     delay(40);
+    
+    // if the ball is moving right
     if(d==0)
     {
-      if(bl_x==15)
+      if(bl_x==15) // if the ball has reached the last position on right side
       {
-        d=1;
-        if(bl_y!=bt2_y)
+        d=1;  //reverse the direction
+        if(bl_y!=bt2_y) //if bat misses the ball
         {
           play=0;
           lcd.clear();
@@ -91,18 +95,20 @@ void loop()
           delay(250);
         }
       }
-      else
+      else //move the ball forward
       {
         bl_x = bl_x + 1;
         bl_y = !bl_y;
       }
     }
+    
+    // if the ball is moving left
     if(d==1 && play==1)
     {
-      if(bl_x==0)
+      if(bl_x==0) // if the ball has reached the last position on left side
       {  
-        d=0;
-        if(bl_y!=bt1_y)
+        d=0;  //reverse the direction of ball
+        if(bl_y!=bt1_y) //if bat misses the ball
         {
           play=0;
           lcd.clear();
@@ -110,7 +116,7 @@ void loop()
           delay(250);
         }
       }
-      else
+      else  //move the ball forward
       {
         bl_x = bl_x - 1;
         bl_y = !bl_y;
@@ -136,5 +142,6 @@ void loop()
       bt2_x=15;
       bt2_y=1;
     }
+    lcd.clear();
   }
 }
