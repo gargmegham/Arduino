@@ -21,7 +21,7 @@ This repository contains various Arduino projects and sketches.
 - [Security](./security): A project that implements a basic security system using Arduino.
     ![Security Design](./security/demo.jpg)
 - [Ultra](./ultra): A project that uses ultrasonic sensors for distance measurement.
-    ![Ultra Design](./ultra/demo.jpg)
+    ![Ultra Design](./ultra/demo.JPG)
 
 ## Contributing
 
