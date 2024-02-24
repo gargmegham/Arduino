@@ -5,7 +5,7 @@ This repository contains various Arduino projects and sketches.
 ## Projects
 
 - [3 Bit Binary Calculator](./3_bit_binary_calculator): A simple calculator that performs addition and subtraction on 3-bit binary numbers.
-    ![Bit Binary Calculator Design](./arduino_keyboard/demo.png)
+    ![Bit Binary Calculator Design](./3_bit_binary_calculator/demo.png)
 - [Arduino Keyboard](./arduino_keyboard): An Arduino-based keyboard that can be used as a HID device.
     ![Arduino Keyboard Design](./arduino_keyboard/demo.png)
 - [Bar Graph](./bar_graph): A project that displays a bar graph using LEDs.
