@@ -7,12 +7,12 @@ This repository contains various Arduino projects and sketches.
 - [3 Bit Binary Calculator](./3_bit_binary_calculator): A simple calculator that performs addition and subtraction on 3-bit binary numbers.
     ![Bit Binary Calculator Design](./3_bit_binary_calculator/demo.png)
 - [Arduino Keyboard](./arduino_keyboard): An Arduino-based keyboard that can be used as a HID device.
-    ![Arduino Keyboard Design](./arduino_keyboard/demo.png)
+    ![Arduino Keyboard Design](./arduino_keyboard/demo.PNG)
 - [Bar Graph](./bar_graph): A project that displays a bar graph using LEDs.
     ![Bar Graph Design](./bar_graph/demo.png)
 - [Help Blind](./help_blind): A project that assists visually impaired individuals with navigation.
 - [Morse Code Communication](./morse_code_communication): A project that enables communication using Morse code.
-    ![Morse Code Communication Design](./morse_code_communication/demo.jpg)
+    ![Morse Code Communication Design](./morse_code_communication/demo.JPG)
 - [Pattern](./pattern): A project that generates various patterns using LEDs.
 - [Ping Pong](./ping_pong): A simple ping pong game implemented on Arduino.
 - [RGB](./rgb): A project that controls RGB LEDs to display different colors.
